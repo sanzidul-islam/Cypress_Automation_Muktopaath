@@ -1,3 +1,4 @@
+import 'cypress-file-upload';
 class blogpageobject{
 
     btnblog="a[title='Blogs'] span[role='button']"
@@ -23,8 +24,10 @@ class blogpageobject{
     blogdescription(description){
         cy.get(this.txtbescription).type(description)
     }
+    
     selectimage(){
-        cy.xpath(this.seltimage)
+        const filep='blog.jpg'
+        cy.xpath(this.seltimage).attachFile(filep)
     }
     submitbutton(){
         cy.get(this.btnsubmit).click({force:true})
